@@ -1,0 +1,66 @@
+@import 'config';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  color: white;
+}
+.showcase {
+  background-color: $color-four;
+  height: 600px;
+
+  nav {
+    background-color: rgba(43, 43, 43, 0.212);
+    height: 50px;
+
+    ul {
+      float: right;
+      // background-color: blue;
+      list-style-type: none;
+      padding-top: 15px;
+      padding-right: 20px;
+
+      li {
+        // background-color: lightcoral;
+        display: inline;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      padding: 10px;
+      color:  black;
+    }
+
+    a:hover {
+
+      color: $primary-color;
+    }
+
+  }
+
+  &-content {
+    
+    // background-color: yellow;
+    display: flex;
+    align-items: center;
+    flex-basis: 100px;
+    padding: 20px 80px;
+
+    p {
+      margin: 20px 0;
+    }
+
+    img {
+      width: auto;
+      height: 600px;
+      // background-color: blue;
+    }
+  }
+}
+
+@import 'mobile';
+@import 'buttons';
+@import 'utilities';
