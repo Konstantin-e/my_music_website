@@ -4,13 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <script src="jquery-1.10.2.min.js"></script>
   <title>My Music</title>
 </head>
 <body>
   <header class="showcase">
     <div class="container">
-      <nav>
-        <ul>
+      <nav id="navigation" class="shrinked">
+        <ul class="menu">
+          <div>
+            <a class="logo" href="#">[koi_music]</a>
+            <div class="x_bars" onclick="toggleX(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+          </div>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
@@ -31,6 +40,72 @@
       </div>
     </div>
   </header>
+
+
+
+  <div class="tracks">
+    <div class="player">
+      <div class="bg">
+        <div class="paused">
+          <audio>
+            <source src="audio/Deep.mp3" type="audio/ogg">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+        <progress class="scrubber" value="0" max="100"></progress>
+    </div>
+  
+    <div class="player">
+      <div class="bg">
+        <div class="paused">
+          <audio>
+            <source src="audio/Dog's Tail.mp3" type="audio/ogg">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="progress">
+          
+        </div>
+      </div>
+      <progress class="scrubber" value="0" max="100"></progress>
+    </div>
+  
+    <div class="player">
+      <div class="bg">
+        <div class="paused">
+          <audio>
+            <source src="audio/Into the Night.mp3" type="audio/ogg">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="progress">
+          
+        </div>
+      </div>
+      <progress class="scrubber" value="0" max="100"></progress>
+    </div>
+  
+    <div class="player">
+      <div class="bg">
+        <div class="paused">
+          <audio>
+            <source src="audio/Paprika.mp3" type="audio/ogg">
+          Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="progress">
+          
+        </div>
+      </div>
+      <progress class="scrubber" value="0" max="100"></progress>
+    </div>
+  </div>
+  
+
+  
+  <script src="main.js"></script>
+
   
 </body>
 </html>
