@@ -2,11 +2,13 @@ console.log("koi_music online");
 
 let bg = document.getElementsByClassName("bg");
 let tracks = document.getElementsByTagName("audio");
-// let canv = document.createElement("canvas");
+let trackLengths = [];
 let canv = document.getElementsByTagName("canvas")[0];
 const trackNames = ["Deep.mp3", "Dog's Tail.mp3", "Into the Night.mp3", "Paprika.mp3"];
-let scrubberId;
+let scrubberIds = [];
 let scrubbers = document.getElementsByClassName("scrubber");
+
+
 
 
 function toggleX(x) {
@@ -47,7 +49,7 @@ for (let i = 0; i < bg.length; i++) {
     } else {
       console.log(tracks[i]);
       tracks[i].pause();
-      barStop();
+      // barStop();
     }
     // console.log(bg[i].firstChild.nextSibling.classList.contains("play"));
     bg[i].firstChild.nextSibling.classList.toggle("paused"); 
@@ -69,26 +71,40 @@ for (let i = 0; i < bg.length; i++) {
   } );
 }
 
-// function togglePlay(x) {
-//   x.classList.toggle("paused");
-//   document.getElementById("navigation").classList.toggle("shrinked");
-// }
+// progress bar
+function barStart(track, index) {
+   
+  scrubberIds[index] = setInterval(frame, 100); //creates an id with respect to track number
+
+  function frame() {
+    if (track.ended || track.paused == true) {
+      clearInterval(scrubberIds[index]);
+    } else {
+      // console.log(track.currentTime);
+        scrubbers[index].setAttribute("value", 100*track.currentTime/track.duration);
+    }
+  }
+}
+
+
+for (let i = 0; i < scrubbers.length; i++) {
+  scrubbers[i].addEventListener("click", progressLocation);
+}
+
+function progressLocation(event) {
+  // for (let i = 0; i < tracks.length; i++) {
+  //   trackLengths[i] = tracks[i].duration;
+  //   console.log(tracks[i].duration);
+  // }
+
+  // console.log(event.pageX - event.srcElement.offsetLeft);
+
+  let relativeTrack = event.srcElement.previousElementSibling.firstElementChild.firstElementChild;
+  let duration = relativeTrack.duration;
+  let scrollAmount = event.pageX - event.srcElement.offsetLeft; // max is width of .bg = 200
+  relativeTrack.currentTime = scrollAmount * duration / 200;
+}
+
 
 // ---------------------------------------------------------------
 
-function barStart(track, index) {
-  scrubberId = setInterval(frame, 1000);
-
-function frame() {
-  if (track.ended) {
-    clearInterval(scrubberId);
-  } else {
-    console.log(track.currentTime);
-      scrubbers[index].setAttribute("value", 100*track.currentTime/track.duration);
-  }
-}
-}
-
-function barStop() {
-  clearInterval(scrubberId);
-}
