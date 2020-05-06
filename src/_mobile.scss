@@ -1,0 +1,91 @@
+@media (max-width: 700px) {
+
+  .shrinked {
+    height: 40px; //hide menu when x is clicked
+  }
+
+  nav {
+    padding: 0;
+
+    ul {
+      flex-wrap: wrap;
+
+      // x for mobile menu-------------------------
+
+      .x_bars {
+        display: inline-block;
+        flex: 1;
+        padding-top: 5px;
+        padding-right: 5px;
+        cursor: pointer;
+      }
+      
+      .bar1, .bar2, .bar3 {
+        width: 25px;
+        height: 5px;
+        background-color: #fff;
+        margin: 3px 0;
+        transition: 0.4s;
+      }
+      
+      .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 3px);
+        transform: rotate(-45deg) translate(-7px, 4px);
+      }
+      
+      .change .bar2 {opacity: 0;}
+      
+      .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-7px, -4px);
+      }
+      // x for mobile end-------------------------
+
+      div {
+        // background-color: coral;
+        width: 100%;
+        display: flex;
+      }
+
+      .logo {
+        flex: 12;
+        // background-color: green;
+        display: inline-block;
+        // float: left;
+      }
+
+      li {
+        flex-basis: 100%;
+        text-align: center;
+        padding: 5px 0;
+
+        &:hover {
+          background-color: rgba(41, 41, 41, 0.233);
+        }
+      }
+    }
+  }
+
+  .showcase {
+    height: 100vh;
+
+    &-content {
+      text-align: center;
+    }
+
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .showcase {
+    
+
+    img {
+      width: auto;
+      height: 400px;
+    }
+  }
+}

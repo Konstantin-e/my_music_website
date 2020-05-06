@@ -1,0 +1,130 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  // color: $text-color;
+  color: black;
+}
+
+
+nav {
+  background-color: rgb(68, 68, 68);;    
+  height: auto; 
+  padding: 10px 0;
+  overflow: hidden;
+  transition: height 2s;
+
+  ul {
+    display: flex;
+
+    li {
+      list-style-type: none;
+      // background-color: green;
+      // border: 1px solid white;
+    }
+
+    div {
+      flex: 1;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  a:hover {
+    color: $primary-color;
+  }
+
+}
+
+
+.showcase {
+  background-color: $color-four;
+  height: 600px;
+
+  &-content {
+    // background-color: yellow;
+    display: flex;
+    align-items: center;
+    flex-basis: 100px;
+    padding: 20px 80px;
+
+    div {
+      // background-color: brown;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    img {
+      width: auto;
+      height: 600px;
+      // background-color: blue;
+    }
+  }
+}
+
+.tracks {
+  display:  flex;
+  width: 100%;
+  // background-color: yellow;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  .player {
+    padding: 40px;
+    flex-basis: 35%;
+
+    .scrubber {
+      width: 200px;
+      // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+      cursor: pointer;
+    }
+  }
+  .bg {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: rgb(68, 68, 68);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+    cursor: pointer;
+
+    &:hover{
+      background-color: rgb(87, 87, 87);
+    }
+  }
+
+  .paused {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 50px solid $play-color;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 50px solid transparent;
+    left: 40%;
+    top: 25%;
+  }
+
+  .playing {
+    position: relative;
+    box-sizing: content-box;
+    width: 20px;
+    height: 80px;
+    border-left: 25px solid $play-color;
+    border-right: 25px solid $play-color;
+    left: 65px;
+    top: 60px;
+
+  }
+}
+
+@import 'mobile';
+@import 'buttons';
