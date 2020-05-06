@@ -1,1 +1,1 @@
-![browser screenshot](screenshots/Screen Shot 2020-05-06 at 7.27.03 PM.png)
+![screenshot](https://github.com/konstantin-e/my_music_website/blob/master/screenshots/screen_shot_1.jpg
