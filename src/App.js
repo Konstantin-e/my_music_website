@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './scss/App.scss';
 import Navigation from './components/Navigation'
 import FrontPage from './components/FrontPage'
 import MusicSection from './components/MusicSection'

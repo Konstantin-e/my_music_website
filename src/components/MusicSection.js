@@ -10,7 +10,7 @@ class MusicSection extends React.Component {
       paused: true,
       duration: [],
       currentTrackNumber: "",
-      currentTime: []
+      currentTime: [],
     }
 
     this.player = React.createRef()
@@ -30,6 +30,7 @@ class MusicSection extends React.Component {
           this.player.current.play()
           this.setState({
             paused: false,
+            ended: this.player.current.ended
           })
         } else {
           this.player.current.pause()
@@ -69,8 +70,9 @@ class MusicSection extends React.Component {
   handleEnded = () => {
     let index = this.state.currentTrackNumber
     let updatedCurrentTime = [...this.state.currentTime]
-    updatedCurrentTime[this.state.currentTrackNumber] = 0
+    updatedCurrentTime[index] = 0
     this.setState({
+      ended: this.player.current.ended,
       paused: true,
       currentTime: updatedCurrentTime
     })
@@ -80,11 +82,12 @@ class MusicSection extends React.Component {
     const list = songs.map((item, index) => {
       return(
         <Track 
+          ended={this.state.ended}
           currentTime={this.state.currentTime[index]}
           currentTrackNumber={this.state.currentTrackNumber}
           paused={this.state.paused}
           duration={this.state.duration[index]}
-          title={this.state.title}
+          title={songs[index].name}
           key={index}
           id={index}
           setSrc={this.handleSetSrc}

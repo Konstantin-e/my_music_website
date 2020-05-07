@@ -1,0 +1,153 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  // color: $text-color;
+  // color: black;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+
+
+nav {
+  background-color: $dark-color; 
+  height: auto; 
+  padding: 10px 0;
+  overflow: hidden;
+  transition: height 2s;
+
+  ul {
+    display: flex;
+
+    li {
+      list-style-type: none;
+      // background-color: green;
+      // border: 1px solid white;
+    }
+
+    div {
+      flex: 1;
+    }
+  }
+
+  a {
+    padding: 10px;
+  }
+
+  a:hover {
+    color: $primary-color;
+  }
+
+}
+
+
+.showcase {
+  background-color: $color-four;
+  height: 600px;
+
+  &-content {
+    color: $text-color;
+    // background-color: yellow;
+    display: flex;
+    align-items: center;
+    flex-basis: 100px;
+    padding: 20px 80px;
+
+    p {
+      margin: 20px 0;
+    }
+
+    img {
+      width: auto;
+      height: 600px;
+      // background-color: blue;
+    }
+  }
+}
+
+.tracks {
+  display:  flex;
+  // width: 100%;
+  // background-color: yellow;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  .player {
+    padding: 40px;
+    color: rgb(156, 156, 156);
+    text-align: center;
+
+    .song-title {
+      position: relative;
+      padding: 5px 10px;
+      display: inline-block;
+      border: 1px solid rgb(199, 198, 198);
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .progress-container {
+      display: grid;
+      grid-template-columns: 30px auto 30px;
+      justify-items: center;
+      width: 270px;
+
+      .scrubber {
+        margin: auto;
+        width:  200px;
+        // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+        cursor: pointer;
+      }
+
+    }
+    
+    .bg {
+      margin: auto;
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      background-color: $dark-color;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+      cursor: pointer;
+  
+      &:hover{
+        background-color: rgb(87, 87, 87);
+      }
+      
+      .paused {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-left: 50px solid $play-color;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+        border-right: 50px solid transparent;
+        left: 40%;
+        top: 25%;
+      }
+    
+      .playing {
+        position: relative;
+        box-sizing: content-box;
+        width: 20px;
+        height: 80px;
+        border-left: 25px solid $play-color;
+        border-right: 25px solid $play-color;
+        left: 65px;
+        top: 60px;
+    
+      }
+    }
+  }
+
+}
+
+@import 'mobile';
+@import 'buttons';

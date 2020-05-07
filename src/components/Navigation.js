@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 function Navigation() {
 
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
+
   function handleClick(event) {
-    event.target.classList.toggle("change");
-    document.getElementById("navigation").classList.toggle("shrinked");
+    setMenuIsOpen(!menuIsOpen)
   }
 
   return(
-        <nav id="navigation" className="shrinked">
+        <nav id="navigation" className={menuIsOpen ? "" : "shrinked"}>
           <ul className="menu">
             <div>
               <a className="logo" href="http://localhost:3000/">[koi_music]</a>
-              <div className="x_bars" onClick={handleClick}>
+              <div className={`x_bars ${menuIsOpen && "change"}`} onClick={handleClick}>
                 <div className="bar1"></div>
                 <div className="bar2"></div>
                 <div className="bar3"></div>

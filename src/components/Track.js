@@ -2,38 +2,23 @@ import React from 'react'
 
 function Track(props) {
 
-  // for (let i = 0; i < scrubbers.length; i++) {
-  //   scrubbers[i].addEventListener("click", progressLocation);
-  // }
-  
-  // function progressLocation(event) {
-  
-  //   let relativeTrack = event.srcElement.previousElementSibling.firstElementChild.firstElementChild;
-  //   let duration = relativeTrack.duration;
-  //   let scrollAmount = event.pageX - event.srcElement.offsetLeft; // max is width of .bg = 200
-  //   relativeTrack.currentTime = scrollAmount * duration / 200;
-  // }
-
-  // if (!props.paused && props.id === props.currentTrackNumber) {
-  //   let scrubberId = setInterval(frame, 100);
-
-  //   function frame() {
-  //     if (props.currentTime === props.duration || track.paused) {
-  //       clearInterval(scrubberId);
-  //     } else {
-  //         scrubbers[index].setAttribute("value", 100*track.currentTime/track.duration);
-  //     }
-  //   }
-  // }
-  
+  function convertToTime(num) {
+    num = num * 1000 //ms
+    let date = new Date(num)
+    // if (props.duration - props.currentTime < 1 || !props.currentTime) {return "0:00"}
+    return date.getMinutes() + ':' + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds())
+  }
 
   return(
     <div className="player">
+      <div className="song-title">{props.title}</div>
       <div className="bg" onClick={props.setSrc(props.id)}>
         <div className={!props.paused && props.id === props.currentTrackNumber ? "playing" : "paused"}>
           
         </div>
       </div>
+      <div className="progress-container">
+        <div>{props.currentTime && props.id === props.currentTrackNumber ? convertToTime(props.currentTime) : null}</div>
         <progress 
           onClick={(event) => {
             if (props.id === props.currentTrackNumber) {
@@ -49,6 +34,10 @@ function Track(props) {
           } 
           max="100" 
         /> 
+        <div>{(props.duration && !props.ended && props.id === props.currentTrackNumber) ?
+         convertToTime(props.duration) : null}
+        </div>
+      </div>
     </div>
   )
 
