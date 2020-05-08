@@ -14,6 +14,13 @@ a {
   color: $text-color;
   text-decoration: none;
 }
+a:hover {
+  color: $primary-color;
+}
+
+li {
+  list-style-type: none;
+}
 
 
 nav {
@@ -41,9 +48,7 @@ nav {
     padding: 10px;
   }
 
-  a:hover {
-    color: $primary-color;
-  }
+  
 
 }
 
@@ -147,6 +152,73 @@ nav {
     }
   }
 
+}
+
+footer {
+  background-color: $color-four;
+  color: $text-color;
+  border-radius: 10px 10px 0 0;
+  
+
+  .container {
+    display: flex;
+    height: 200px;
+
+    div {
+      padding-top: 30px;
+      // flex-basis: 0;
+      // background-color: rgb(47, 112, 155);
+      // border: 5px solid greenyellow;
+    }
+  
+    .logo {
+      flex: 0 1 0;
+      padding: 30px;
+    }
+  
+    .col-1 {
+      flex: 1 1 0;
+      // align-self: flex-end;
+    }
+  
+    .col-2 {
+      flex: 1 1 0;
+      text-align: center;
+
+
+    }
+  }
+
+  .soc-media {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    // background-color: blanchedalmond;
+    
+    a {
+      text-align: center;
+      padding-top: 5px;
+      background-color: #548e97;
+      width: 40px;
+      height: 40px;
+      margin: 0 5px;
+      border-radius: 20px;
+
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+    }
+
+    .fa-instagram {
+      background: #d43175;
+    }
+
+    .fa-github {
+      background: rgb(77, 77, 77)
+    }
+  }
 }
 
 @import 'mobile';
