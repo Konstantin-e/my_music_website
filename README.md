@@ -2,4 +2,4 @@ This is a custom audio player made with React
 
 https://festive-stonebraker-c10449.netlify.app
 
-![screenshot](screenshots/screen_shot_1.jpg?raw=true "screenshot_1") <!-- .element height="50%" width="50%" -->
+<img src="screenshots/screen_shot_1.jpg" width="500">
